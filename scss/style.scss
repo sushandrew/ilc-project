@@ -149,19 +149,18 @@ body {
         display: contents;
     }
     transition: all .3s;
+    z-index: 100;
 }
 
 .hero {
     padding-top: 220px;
     &__inner {
+        position: relative;
         display: grid;
     }
-    &__background {
-        position: relative;
-        grid-area: 1/-1;
-        justify-self: right;
-        align-self: center;
-        margin-right: 77px;
+    &__picture {
+        grid-area: 1/1/5/2;
+        justify-self: end;
         z-index: -10;
     }
     &__img {
@@ -173,12 +172,8 @@ body {
             right: 65px;
         }
     }
-    &__info  {
-        grid-area: 1/-1;
-        display: flex;
-        flex-direction: column;
-    }
     &__title {
+        grid-area: 1/1/2/-1;
         max-width: 733px;
         margin: 65px 0 16px 0;
         font-size: 3rem;
@@ -187,19 +182,24 @@ body {
         color: var(--clr-dark-title);
     }
     &__text {
+        grid-area: 2/1/3/-1;
         max-width: 547px;
         margin-bottom: 32px;
         color: var(--clr-dark-title);
     }
     &__btn {
+        grid-area: 3/1/4/-1;
+        justify-self: start;
         align-self: start;
     }
     &__list {
-        align-self: end;
+        grid-area: 4/1/5/-1;
+        justify-self: end;
         max-width: 670px;
         padding: 32px 48px;
         display: flex;
         gap: 32px;
+
     }
     &__item-img {
         margin-bottom: 8px;
@@ -884,20 +884,18 @@ body {
 
 @media (max-width: 1024px) {
     .hero {
-        &__info {
-            align-items: center;
+        &__inner {
+            justify-items: center;
         }
-        &__background {
-            margin: 0;
+        &__picture {
             justify-self: center;
         }
         &__img {
             opacity: .4;
             &--second {
-                position: relative;
-                top: -165px;
-                right: 0;
-                margin: 0 auto;
+                grid-area: 4/1/5/-1;
+                position: static;
+                margin-bottom: 16px;
             }
         }
         &__title {
@@ -908,11 +906,12 @@ body {
             text-align: center;
         }
         &__btn {
-            align-self: center;
+            justify-self: center;
+            margin-bottom: 16px;
         }
         &__list {
-            align-self: center;
-            margin-top: 200px;
+            grid-area: 5/1/6/-1;
+            justify-self: center;
         }
     }
     .advantages {
@@ -1056,6 +1055,7 @@ body {
     }
     .partners {
         &__banner {
+            padding: 50px 0 100px 0;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -1119,11 +1119,6 @@ body {
 }
 
 @media (max-width: 660px) {
-    .hero {
-        &__img--second {
-            top: -145px;
-        }
-    }
     .beginning {
         &__title {
             margin-bottom: 24px;
@@ -1192,9 +1187,6 @@ body {
         &__title {
             font-size: 1.5rem;
         }
-        &__img--second {
-            top: -220px;
-        }
     }
     .director {
         &__img {
@@ -1205,9 +1197,6 @@ body {
 
 @media (max-width: 500px) {
     .hero {
-        &__img--second {
-            top: -335px;
-        }
         &__list {
             display: grid;
             grid-template-columns: 1fr;
@@ -1293,9 +1282,6 @@ body {
     }
     .hero {
         padding-top: 120px;
-        &__img--second {
-            top: -295px;
-        }
     }
     .fee {
         &__title {
@@ -1350,11 +1336,6 @@ body {
 }
 
 @media (max-width: 376px) {
-    .hero {
-        &__img--second {
-            top: -260px;
-        }
-    }
     .team {
         &__support-title {
             margin-bottom: 24px;
@@ -1376,10 +1357,5 @@ body {
 @media (max-width: 321px) {
     body {
         font-size: .75rem;
-    }
-    .hero {
-        &__img--second {
-            top: -210px;
-        }
     }
 }

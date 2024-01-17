@@ -31,7 +31,6 @@ $(function() {
 const feeSelectors = document.querySelectorAll('.fee__selectors-item');
 const feeList = document.querySelectorAll('.fee__inner');
 for (let i = 0; i < feeSelectors.length; i++) {
-    console.log(i);
     feeSelectors[i].addEventListener('click', function() {
         feeSelectors.forEach(function(feeSelector) {
             feeSelector.classList.remove('fee__selectors-item--selected');
